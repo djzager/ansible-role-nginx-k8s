@@ -33,5 +33,5 @@ cluster and that you have sufficient permissions in the
     namespace: my-nginx-namespace
     size: 3
   roles:
-    - djzager.nginx_k8s
+    - name: djzager.nginx_k8s
 ```
