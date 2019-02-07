@@ -1,0 +1,8 @@
+---
+
+# Namespace to install into
+namespace: nginx
+
+# To uninstall from the cluster
+# state: absent
+state: present

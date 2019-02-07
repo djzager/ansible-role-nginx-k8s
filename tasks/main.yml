@@ -1,0 +1,13 @@
+---
+
+- name: Make deployment state={{ state }}
+  k8s:
+    state: "{{ state }}"
+    namespace: "{{ namespace }}"
+    definition: "{{ lookup('file', 'deployment.yaml') | from_yaml }}"
+
+- name: Make service state={{ state }}
+  k8s:
+    state: "{{ state }}"
+    namespace: "{{ namespace }}"
+    definition: "{{ lookup('file', 'service.yaml') | from_yaml }}"
