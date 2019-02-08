@@ -1,7 +1,18 @@
 ---
 
+# Name for our application
+name: example-nginx
+
 # Namespace to install into
 namespace: nginx
+
+# Nginx image
+# Why not from library/nginx?
+# -> https://torstenwalter.de/openshift/nginx/2017/08/04/nginx-on-openshift.html
+image: twalter/openshift-nginx:stable
+
+# Size of the deployment
+size: 2
 
 # To uninstall from the cluster
 # state: absent

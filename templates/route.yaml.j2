@@ -3,12 +3,13 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: nginx-route
+  name: {{ name }}
+  namespace: {{ namespace }}
   labels:
-    app: nginx
+    app: {{ name }}
 spec:
   port:
     targetPort: web
   to:
     kind: Service
-    name: nginx-service
+    name: {{ name }}

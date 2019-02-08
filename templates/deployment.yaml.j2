@@ -3,20 +3,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: {{ name }}
+  namespace: {{ namespace }}
 spec:
   selector:
     matchLabels:
-      app: nginx
-  replicas: 2
+      app: {{ name }}
+  replicas: {{ size }}
   template:
     metadata:
       labels:
-        app: nginx
+        app: {{ name }}
     spec:
       containers:
       - name: nginx
-        # https://torstenwalter.de/openshift/nginx/2017/08/04/nginx-on-openshift.html
-        image: twalter/openshift-nginx:stable
+        image: {{ image }}
         ports:
         - containerPort: 8081

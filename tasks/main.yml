@@ -7,18 +7,15 @@
 - name: Make deployment state={{ state }}
   k8s:
     state: "{{ state }}"
-    namespace: "{{ namespace }}"
-    definition: "{{ lookup('file', 'deployment.yaml') | from_yaml }}"
+    definition: "{{ lookup('template', 'deployment.yaml.j2') | from_yaml }}"
 
 - name: Make service state={{ state }}
   k8s:
     state: "{{ state }}"
-    namespace: "{{ namespace }}"
-    definition: "{{ lookup('file', 'service.yaml') | from_yaml }}"
+    definition: "{{ lookup('template', 'service.yaml.j2') | from_yaml }}"
 
 - name: Make route state={{ state }}
   k8s:
     state: "{{ state }}"
-    namespace: "{{ namespace }}"
-    definition: "{{ lookup('file', 'route.yaml') | from_yaml }}"
+    definition: "{{ lookup('template', 'route.yaml.j2') | from_yaml }}"
   when: ('route.openshift.io' in api_groups) | bool
