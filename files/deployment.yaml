@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        # https://torstenwalter.de/openshift/nginx/2017/08/04/nginx-on-openshift.html
+        image: twalter/openshift-nginx:stable
         ports:
-        - containerPort: 80
+        - containerPort: 8081

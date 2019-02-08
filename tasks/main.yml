@@ -11,3 +11,9 @@
     state: "{{ state }}"
     namespace: "{{ namespace }}"
     definition: "{{ lookup('file', 'service.yaml') | from_yaml }}"
+
+- name: Make route state={{ state }}
+  k8s:
+    state: "{{ state }}"
+    namespace: "{{ namespace }}"
+    definition: "{{ lookup('file', 'route.yaml') | from_yaml }}"
