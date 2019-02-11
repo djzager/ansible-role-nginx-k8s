@@ -1,0 +1,33 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: html-index-configmap
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Hello World</title>
+    <style>
+        body {
+            width: 35em;
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+    </style>
+    </head>
+    <body>
+    <h1>Welcome to Ansible k8s</h1>
+    <p>
+      If you see this page, we were successful in our attempt
+      to load (conditionally) from a ConfigMap
+    </p>
+
+    <p>
+      Check out the documentation for the
+      <a href="https://docs.ansible.com/ansible/latest/modules/k8s_module.html">k8s module</a>.<br/>
+    </p>
+
+    <p><em>Thank you for playing.</em></p>
+    </body>
+    </html>

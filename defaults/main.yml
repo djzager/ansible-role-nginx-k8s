@@ -14,6 +14,10 @@ image: twalter/openshift-nginx:stable
 # Size of the deployment
 size: 2
 
+# HTML Index ConfigMap name
+# If this configmap exists in the namespace we will add it to the Deployment(Config)
+html_index_configmap: html-index-configmap
+
 # To uninstall from the cluster
 # state: absent
 state: present
