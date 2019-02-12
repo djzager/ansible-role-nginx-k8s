@@ -29,12 +29,20 @@ spec:
         image: {{ image }}
         ports:
         - containerPort: 8081
-{% if lookup('k8s', kind='ConfigMap', namespace=namespace, resource_name=html_index_configmap) %}
         volumeMounts:
+        - name: config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+{% if lookup('k8s', kind='ConfigMap', namespace=namespace, resource_name=html_index_configmap) %}
         - name: html
           mountPath: /usr/share/nginx/html
           readOnly: true
+{% endif %}
       volumes:
+      - name: config
+        configMap:
+          name: {{ name }}
+{% if lookup('k8s', kind='ConfigMap', namespace=namespace, resource_name=html_index_configmap) %}
       - name: html
         configMap:
           name: {{ html_index_configmap }}

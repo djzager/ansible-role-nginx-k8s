@@ -21,3 +21,6 @@ html_index_configmap: html-index-configmap
 # To uninstall from the cluster
 # state: absent
 state: present
+
+nginx_config_worker_processes: 1
+nginx_config_worker_connections: 1024

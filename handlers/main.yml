@@ -1,0 +1,12 @@
+---
+
+- name: kill nginx pods
+  k8s:
+    state: absent
+    definition:
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: "{{ item.metadata.name }}"
+        namespace: "{{ item.metadata.namespace }}"
+  loop: "{{ q('k8s', api_version='v1', kind='Pod', namespace=namespace, label_selector=('app=' + name)) }}"
